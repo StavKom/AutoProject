@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +10,9 @@ public class AmazonMainPage1 {
     @FindBy(id = "twotabsearchtextbox")
     WebElement search;
     @FindBy(id = "nav-search-submit-button")
-    WebElement SearchButton;
-    @FindBy (className ="a-price-whole")
-    WebElement FirstPrice;
-   /* WebElement FirstPrice = driver.findElement(By.cssSelector("#search .s-result-item:nth-of-type(1) .a-price-whole"));*/
+    WebElement searchBtn;
+    @FindBy (css ="span[class='a-price-whole']")
+    WebElement firstPrice;
 
     public AmazonMainPage1(WebDriver driver) {
         this.driver = driver;
@@ -22,18 +20,18 @@ public class AmazonMainPage1 {
 
     }
 
-    public void searchtext() {
+    public void searchText() {
         search.click();
         search.clear();
         search.sendKeys("bottle");
-        SearchButton.click();
+        searchBtn.click();
     }
-    public Float FirstBottlePrice() throws InterruptedException {
+    public Float firstBottlePrice() throws InterruptedException {
         Thread.sleep(3000);
-        String priceAsText = driver.findElement(By.cssSelector("span[class='a-price-whole']")).getText();
+        String priceAsText = firstPrice.getText();
         String numbersOnlyebay = priceAsText.replaceAll("[^\\d.]+", "");
-        Float firstbottleprice =Float.parseFloat(numbersOnlyebay);
-        return firstbottleprice;
+        Float firstBottlePrice =Float.parseFloat(numbersOnlyebay);
+        return firstBottlePrice;
 
     }
 }
