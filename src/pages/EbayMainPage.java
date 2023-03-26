@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ebayMainPage {
+public class EbayMainPage {
     private WebDriver driver;
     @FindBy(id = "gh-ac")
     WebElement ebaySearch;
@@ -15,7 +15,7 @@ public class ebayMainPage {
     WebElement ebayPrice;
 
 
-    public ebayMainPage(WebDriver driver) {
+    public EbayMainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

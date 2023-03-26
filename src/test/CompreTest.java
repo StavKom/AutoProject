@@ -1,20 +1,20 @@
 package test;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AmazonMainPage1;
-import pages.ebayMainPage;
+import pages.AmazonMainPage;
+import pages.EbayMainPage;
 import pages.SeleniumBase;
 
 public class CompreTest {
     public static void main(String[] args) throws InterruptedException {
         SeleniumBase base = new SeleniumBase();
         ChromeDriver driver = base.seleniumInit("https://www.amazon.com/");
-        AmazonMainPage1 mainPage = new AmazonMainPage1(driver);
+        AmazonMainPage mainPage = new AmazonMainPage(driver);
         mainPage.searchText();
         Float amazonPrice = mainPage.firstBottlePrice();
         System.out.println("The first price of a bottle in amazon is "+ mainPage.firstBottlePrice());
         driver.get("https://www.ebay.com/");
-        ebayMainPage ebayMainPage = new ebayMainPage(driver);
+        EbayMainPage ebayMainPage = new EbayMainPage(driver);
         ebayMainPage.ebaySearchText();
         Float ebayPrice = ebayMainPage.ebaytBottlePrice();
         System.out.println("The first price of a bottle in Ebay is "+ ebayMainPage.ebaytBottlePrice());

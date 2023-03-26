@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AmazonMainPage1 {
+public class AmazonMainPage {
     private WebDriver driver;
     @FindBy(id = "twotabsearchtextbox")
     WebElement search;
@@ -14,7 +14,7 @@ public class AmazonMainPage1 {
     @FindBy (css ="span[class='a-price-whole']")
     WebElement firstPrice;
 
-    public AmazonMainPage1(WebDriver driver) {
+    public AmazonMainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
